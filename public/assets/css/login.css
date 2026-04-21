@@ -1,0 +1,112 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    height:100vh;
+    background: radial-gradient(circle at top, rgb(126,181,245), rgb(9,33,79), rgb(2,3,22));
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+}
+
+/* CONTENEDOR */
+
+.login-container{
+    width:100%;
+    max-width:400px;
+    padding:20px;
+}
+
+/* CARD */
+
+.login-card{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(126,181,245,0.4);
+}
+
+/* LOGO */
+
+.logo{
+    width:120px;
+    margin-bottom:15px;
+    filter: drop-shadow(0 0 10px rgba(126,181,245,0.7));
+}
+
+/* TITULO */
+
+h2{
+    margin-bottom:20px;
+}
+
+/* INPUTS */
+
+.input-group{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background: rgba(255,255,255,0.08);
+    color:#fff;
+    font-size:14px;
+}
+
+.input-group label{
+    position:absolute;
+    left:12px;
+    top:12px;
+    color:rgb(139,140,140);
+    font-size:13px;
+    transition:0.3s;
+    pointer-events:none;
+}
+
+/* EFECTO FLOAT */
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+    top:-8px;
+    font-size:11px;
+    color:rgb(126,181,245);
+}
+
+/* BOTÓN */
+
+.btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    background: linear-gradient(45deg, rgb(126,181,245), rgb(9,33,79));
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(126,181,245,0.6);
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* ERROR */
+
+.error{
+    margin-top:10px;
+    font-size:12px;
+    color:#ff6b6b;
+}

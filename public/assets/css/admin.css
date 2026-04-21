@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background: radial-gradient(circle at top, rgb(126,181,245), rgb(9,33,79), rgb(2,3,22));
+    color:#fff;
+}
+
+/* CONTENEDOR */
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+/* HEADER */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:24px;
+}
+
+.logout{
+    text-decoration:none;
+    color:#fff;
+    background: rgba(255,255,255,0.1);
+    padding:8px 15px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.logout:hover{
+    background: rgba(255,255,255,0.2);
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
+}
+
+.card{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius:20px;
+    padding:20px;
+    text-decoration:none;
+    color:#fff;
+    transition:0.3s;
+    box-shadow: 0 0 30px rgba(126,181,245,0.2);
+}
+
+.card:hover{
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 40px rgba(126,181,245,0.5);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:13px;
+    color:rgb(139,140,140);
+}
+
+/* FORM CARD */
+
+.form-card{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius:20px;
+    padding:25px;
+    max-width:500px;
+    margin:auto;
+    box-shadow: 0 0 30px rgba(126,181,245,0.3);
+}
+
+/* INPUTS (reutilizamos estilo login) */
+
+.input-group{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background: rgba(255,255,255,0.08);
+    color:#fff;
+}
+
+.input-group label{
+    position:absolute;
+    left:12px;
+    top:12px;
+    font-size:13px;
+    color:rgb(139,140,140);
+    transition:0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+    top:-8px;
+    font-size:11px;
+    color:rgb(126,181,245);
+}
+
+/* BOTÓN */
+
+.btn{
+    display:block;
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    background: linear-gradient(45deg, rgb(126,181,245), rgb(9,33,79));
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    text-align:center;
+    margin-top:10px;
+    box-shadow:0 0 20px rgba(126,181,245,0.6);
+    text-decoration:none;
+}
+
+/* RESULTADO */
+
+.result{
+    margin-top:20px;
+    text-align:center;
+}
+
+.link{
+    display:block;
+    margin:10px 0;
+    color:#7eb5f5;
+    text-decoration:none;
+}
+
+/* BOTÓN WHATSAPP */
+
+.whatsapp{
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    box-shadow:0 0 20px rgba(37,211,102,0.6);
+}
