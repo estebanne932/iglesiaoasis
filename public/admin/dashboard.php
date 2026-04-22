@@ -34,14 +34,14 @@ if (!isset($_SESSION['user'])) {
             <p>Registrar nuevo acceso con QR</p>
         </a>
 
-        <a href="invitados.php" class="card">
+        <a href="index.php" class="card">
             <h3>Ver Invitados</h3>
             <p>Lista completa de registros</p>
         </a>
 
-        <a href="../index.php" class="card">
-            <h3>Ver Invitación</h3>
-            <p>Vista pública del evento</p>
+        <a href="scan.php" class="card">
+            <h3>Escaner</h3>
+            <p>Registrar visita</p>
         </a>
 
     </div>

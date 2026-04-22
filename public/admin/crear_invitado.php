@@ -12,15 +12,24 @@ $link = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
+    $iglesia = $_POST['iglesia'] ?? null;
 
     $token = bin2hex(random_bytes(8));
+    $stmt = $pdo->prepare("SELECT id FROM invitados WHERE telefono = ?");
+    $stmt->execute([$telefono]);
 
-    $stmt = $pdo->prepare("INSERT INTO invitados (nombre, telefono, token) VALUES (?, ?, ?)");
-    $stmt->execute([$nombre, $telefono, $token]);
+    if ($stmt->fetch()) {
+        $error = "Este número ya está registrado";
+    } else {
+        $token = bin2hex(random_bytes(8));
 
-    $link = "http://localhost/invitacion-app/public/invitado.php?token=$token";
+        $stmt = $pdo->prepare("INSERT INTO invitados (nombre, telefono, token, iglesia, asistio) VALUES (?, ?, ?, ?, 0)");
+        $stmt->execute([$nombre, $telefono, $token, $iglesia]);
 
-    $mensaje = urlencode("Hola $nombre 👋\n\nAquí está tu acceso al evento:\n$link\n\nPresenta este código el día del evento 🎟️");
+        $link = "https://congresoecos.agencianeo.tech/invitado.php?token=$token";
+
+        $mensaje = urlencode("Hola $nombre 👋\n\nTe esperamos en $iglesia 🙌\n\nAquí está tu acceso al evento:\n$link\n\nPresenta este código el día del evento 🎟️");
+    }
 }
 ?>
 
@@ -55,6 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="input-group">
                 <input type="text" name="telefono" required>
                 <label>Teléfono</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" name="iglesia">
+                <label>Iglesia</label>
             </div>
 
             <button class="btn">Guardar invitado</button>

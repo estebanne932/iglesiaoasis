@@ -161,3 +161,80 @@ body{
     background: linear-gradient(45deg, #25D366, #128C7E);
     box-shadow:0 0 20px rgba(37,211,102,0.6);
 }
+
+.table-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.table-header h2 {
+    color: #fff;
+    font-size: 18px;
+}
+
+.count {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.styled-table thead th {
+    text-align: left;
+    padding: 12px;
+    font-size: 13px;
+    opacity: 0.7;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.styled-table tbody tr {
+    transition: 0.2s;
+}
+
+.styled-table tbody tr:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.styled-table td {
+    padding: 14px 12px;
+    font-size: 14px;
+}
+
+.name {
+    font-weight: 600;
+}
+
+.date {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+/* badges */
+.badge {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.success {
+    background: rgba(40, 167, 69, 0.2);
+    color: #4ade80;
+}
+
+.pending {
+    background: rgba(255, 193, 7, 0.2);
+    color: #facc15;
+}
