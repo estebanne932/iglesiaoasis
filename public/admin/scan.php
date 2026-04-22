@@ -54,17 +54,39 @@ function onScanSuccess(decodedText) {
         });
 }
 
+let scanning = true;
+
+function onScanSuccess(decodedText) {
+    if (!scanning) return;
+    scanning = false;
+
+    document.getElementById("result").innerHTML = "Procesando...";
+
+    let token = decodedText.includes("token=") 
+        ? decodedText.split("token=")[1] 
+        : decodedText;
+
+    fetch("checkin.php?token=" + token)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("result").innerHTML = data.message;
+        })
+        .catch(() => {
+            document.getElementById("result").innerHTML = "❌ Error al procesar";
+        });
+
+    setTimeout(() => scanning = true, 3000);
+}
+
 const html5QrCode = new Html5Qrcode("reader");
 
-Html5Qrcode.getCameras().then(devices => {
-    if (devices.length) {
-        html5QrCode.start(
-            devices[0].id,
-            { fps: 10, qrbox: 250 },
-            onScanSuccess
-        );
-    }
-});
+// 👇 FORZAR cámara trasera (mejor que detectar labels)
+html5QrCode.start(
+    { facingMode: "environment" },
+    { fps: 10, qrbox: 250 },
+    onScanSuccess
+);
+
 </script>
 
 </body>

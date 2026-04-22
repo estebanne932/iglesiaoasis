@@ -106,7 +106,7 @@ $invitados = $stmt->fetchAll();
     <div class="header">
         <h1>Invitados</h1>
         <div>
-            <a href="create.php" class="btn">+ Nuevo invitado</a>
+            <a href="crear_invitado.php" class="btn">+ Nuevo invitado</a>
             <br>
             <a href="dashboard.php" class="logout">← Volver</a>
         </div>
