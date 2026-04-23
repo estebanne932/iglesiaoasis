@@ -96,7 +96,7 @@
         <h2>Omar Rodriguez</h2>
 
         <p class="frase">
-            "Una frase motivadora impactante que conecte con el evento y genere expectativa."
+            "Integrante, músico y vocalista de la agrupación en espíritu y en verdad"
         </p>
 
     </div>
