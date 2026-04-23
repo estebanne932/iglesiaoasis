@@ -6,23 +6,66 @@
 }
 
 body{
-    background: radial-gradient(circle at top, rgb(126,181,245), rgb(9,33,79), rgb(2,3,22));
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     color:#fff;
+    overflow:hidden;
+    position:relative;
+}
+
+/* VIDEO FULL SCREEN */
+/* CONTENEDOR DEL VIDEO */
+.video-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    z-index:0;
+    overflow:hidden;
+}
+
+/* VIDEO DENTRO */
+.video-bg video{
+    position:absolute;
+    top:50%;
+    left:50%;
+    min-width:100%;
+    min-height:100%;
+    width:auto;
+    height:auto;
+    transform:translate(-50%, -50%);
+    object-fit:cover;
+}
+
+
+
+/* 🚫 rompe estilos globales */
+video{
+    max-width: none !important;
+}
+
+/* CAPA AZUL ENCIMA DEL VIDEO */
+.overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgba(9,33,79,0.6);
 }
 
 .container{
     width:100%;
     max-width:420px;
     padding:20px;
+     position:relative;
+    z-index:2;
 }
 
 .card{
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(12px);
+
     border-radius:25px;
     padding:25px;
     text-align:center;
@@ -271,3 +314,39 @@ h1{
         transform:scale(1);
     }
 }
+
+
+/* 🔥 capa completamente independiente */
+.bg-fixed{
+
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 0 !important;
+
+    overflow: hidden !important;
+    pointer-events: none;
+}
+
+/* 🔥 video FULL pantalla real */
+.bg-fixed video{
+    position: absolute !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    min-width: 100% !important;
+    min-height: 100% !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    object-fit: cover !important;
+
+    max-width: none !important;
+}
+
