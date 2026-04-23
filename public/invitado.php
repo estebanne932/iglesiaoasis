@@ -90,7 +90,9 @@ if (!$invitado) {
         <!-- FOOTER -->
 <div class="powered">
     <p>Powered by</p>
-    <img src="assets/img/logo.png" alt="Tu logo">
+    <a href="http://agencianeo.tech/">
+        <img src="assets/img/logo.png" alt="Tu logo">
+    </a>
 </div>
   
 
