@@ -90,7 +90,7 @@ if (!$invitado) {
         <!-- FOOTER -->
 <div class="powered">
     <p>Powered by</p>
-    <img src="/public/assets/img/logo.png" alt="Tu logo">
+    <img src="assets/img/logo.png" alt="Tu logo">
 </div>
   
 

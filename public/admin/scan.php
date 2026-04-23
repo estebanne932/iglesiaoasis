@@ -44,16 +44,6 @@ body {
 <div class="result" id="result"></div>
 
 <script>
-function onScanSuccess(decodedText) {
-    document.getElementById("result").innerHTML = "Procesando...";
-
-    fetch("checkin.php?token=" + decodedText.split("token=")[1])
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById("result").innerHTML = data.message;
-        });
-}
-
 let scanning = true;
 
 function onScanSuccess(decodedText) {
@@ -62,16 +52,28 @@ function onScanSuccess(decodedText) {
 
     document.getElementById("result").innerHTML = "Procesando...";
 
-    let token = decodedText.includes("token=") 
-        ? decodedText.split("token=")[1] 
-        : decodedText;
+    // Extraer token correctamente
+    let token = "";
+
+    if (decodedText.includes("token=")) {
+        token = decodedText.split("token=")[1];
+    } else {
+        token = decodedText;
+    }
+
+    if (!token) {
+        document.getElementById("result").innerHTML = "❌ QR inválido";
+        scanning = true;
+        return;
+    }
 
     fetch("checkin.php?token=" + token)
         .then(res => res.json())
         .then(data => {
             document.getElementById("result").innerHTML = data.message;
         })
-        .catch(() => {
+        .catch((err) => {
+            console.error(err);
             document.getElementById("result").innerHTML = "❌ Error al procesar";
         });
 
@@ -80,13 +82,11 @@ function onScanSuccess(decodedText) {
 
 const html5QrCode = new Html5Qrcode("reader");
 
-// 👇 FORZAR cámara trasera (mejor que detectar labels)
 html5QrCode.start(
     { facingMode: "environment" },
     { fps: 10, qrbox: 250 },
     onScanSuccess
 );
-
 </script>
 
 </body>
