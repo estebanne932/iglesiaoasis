@@ -1,5 +1,5 @@
 <?php
-require '../../app/db.php';
+require __DIR__ . '/../../app/db.php';
 
 header('Content-Type: application/json');
 
@@ -10,28 +10,25 @@ if (!$token) {
     exit;
 }
 
-// Buscar invitado
 $stmt = $pdo->prepare("SELECT * FROM invitados WHERE token = ?");
 $stmt->execute([$token]);
-$inv = $stmt->fetch();
+$inv = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$inv) {
     echo json_encode(["message" => "❌ Invitado no encontrado"]);
     exit;
 }
 
-// Si ya asistió
-if ($inv['asistio']) {
+if (!empty($inv['asistio'])) {
     echo json_encode([
         "message" => "⚠️ {$inv['nombre']} ya ingresó"
     ]);
     exit;
 }
 
-// Marcar asistencia
 $stmt = $pdo->prepare("
     UPDATE invitados 
-    SET asistio = 1, hora_asistencia = NOW() 
+    SET asistio = 1 
     WHERE token = ?
 ");
 $stmt->execute([$token]);
