@@ -97,6 +97,20 @@ $invitados = $stmt->fetchAll();
     background: rgba(255, 193, 7, 0.2);
     color: #facc15;
 }
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
 </style>
 
 <body>
@@ -119,7 +133,8 @@ $invitados = $stmt->fetchAll();
             <span class="count"><?= count($invitados) ?> registros</span>
         </div>
 
-        <table class="styled-table">
+        <div class="table-responsive">
+            <table class="styled-table">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -154,6 +169,8 @@ $invitados = $stmt->fetchAll();
                 <?php endforeach; ?>
             </tbody>
         </table>
+        </div>
+        
 
     </div>
 
