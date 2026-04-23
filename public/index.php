@@ -78,7 +78,10 @@
     <!-- FOOTER -->
 <div class="powered">
     <p>Powered by</p>
-    <img src="assets/img/logo.png" alt="Tu logo">
+    <a href="http://agencianeo.tech/">
+        <img src="assets/img/logo.png" alt="Tu logo">
+    </a>
+    
 </div>
   
 
@@ -91,7 +94,7 @@
 
         <span class="close" onclick="cerrarModal()">&times;</span>
 
-        <img src="public/assets/img/Omar.png" class="orador-img">
+        <img src="assets/img/Omar.png" class="orador-img">
 
         <h2>Omar Rodriguez</h2>
 
