@@ -67,15 +67,15 @@ function onScanSuccess(decodedText) {
         return;
     }
 
-    fetch("checkin.php?token=" + token)
-        .then(res => res.text()) // 👈 importante para debug
-        .then(data => {
-            console.log("RESPUESTA:", data);
-            document.getElementById("result").innerHTML = data;
-        })
-        .catch(() => {
-            document.getElementById("result").innerHTML = "❌ Error al procesar";
-        });
+    fetch("/admin/checkin.php?token=" + token)
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("result").innerHTML = data.message;
+    })
+    .catch(() => {
+        document.getElementById("result").innerHTML = "❌ Error al procesar";
+    });
+        
 
     setTimeout(() => scanning = true, 3000);
 }
