@@ -52,12 +52,12 @@ function onScanSuccess(decodedText) {
 
     document.getElementById("result").innerHTML = "Procesando...";
 
-    // Extraer token correctamente
     let token = "";
 
-    if (decodedText.includes("token=")) {
-        token = decodedText.split("token=")[1];
-    } else {
+    try {
+        let url = new URL(decodedText);
+        token = url.searchParams.get("token");
+    } catch (e) {
         token = decodedText;
     }
 
@@ -68,18 +68,17 @@ function onScanSuccess(decodedText) {
     }
 
     fetch("checkin.php?token=" + token)
-        .then(res => res.json())
+        .then(res => res.text()) // 👈 importante para debug
         .then(data => {
-            document.getElementById("result").innerHTML = data.message;
+            console.log("RESPUESTA:", data);
+            document.getElementById("result").innerHTML = data;
         })
-        .catch((err) => {
-            console.error(err);
+        .catch(() => {
             document.getElementById("result").innerHTML = "❌ Error al procesar";
         });
 
     setTimeout(() => scanning = true, 3000);
 }
-
 const html5QrCode = new Html5Qrcode("reader");
 
 html5QrCode.start(
