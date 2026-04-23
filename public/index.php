@@ -37,7 +37,7 @@
 
     <div class="card">
 
-        <img src="public/assets/img/LOGOECOS.png" class="logo-top">
+        <img src="assets/img/LOGOECOS.png" class="logo-top">
         <br>
         <p class="tag">✨ INVITACIÓN ESPECIAL</p>
 
@@ -70,7 +70,7 @@
         <p class="note">Cupo limitado</p>
 
           <div class="footer-logos">
-            <img src="public/assets/img/LOGOOASIS.png">
+            <img src="assets/img/LOGOOASIS.png">
          </div>
 
     </div>
@@ -78,7 +78,7 @@
     <!-- FOOTER -->
 <div class="powered">
     <p>Powered by</p>
-    <img src="public/assets/img/logo.png" alt="Tu logo">
+    <img src="assets/img/logo.png" alt="Tu logo">
 </div>
   
 
