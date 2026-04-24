@@ -46,6 +46,14 @@ if (!$invitado) {
 
 <body>
 
+<div class="bg-fixed">
+    <video autoplay muted loop playsinline>
+        <source src="assets/img/fondo.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="overlay"></div>
+
 <div class="container">
 
     <div class="card">
