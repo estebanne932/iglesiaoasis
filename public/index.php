@@ -95,23 +95,12 @@
 
 </div>
 
-
-<div class="modal" id="modalInfo">
-
+<div id="modalInfo" class="modal">
     <div class="modal-content">
-
         <span class="close" onclick="cerrarModal()">&times;</span>
 
-        <img src="assets/img/Omar.png" class="orador-img">
-
-        <h2>Omar Rodriguez</h2>
-
-        <p class="frase">
-            "Integrante, músico y vocalista de la agrupación en espíritu y en verdad"
-        </p>
-
+        <img src="assets/img/modal.jpeg" class="modal-img" alt="Horario">
     </div>
-
 </div>
 
 <script>
